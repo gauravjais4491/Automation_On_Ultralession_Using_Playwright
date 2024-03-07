@@ -2,44 +2,50 @@ class CreateAccount {
     constructor(page) {
         this.page = page
     }
-    get login(){
+    get login() {
         return this.page.locator(`[href$='/account/login']:visible`)
     }
-    get register(){
+    get register() {
         return this.page.locator(`[href$='/account/register']:visible`)
     }
-    get firstName(){
+    get firstName() {
         return this.page.getByPlaceholder('First name')
     }
-    get lastName(){
+    get lastName() {
         return this.page.getByPlaceholder('Last name')
     }
-    get email(){
+    get email() {
         return this.page.locator('#RegisterForm-email')
     }
-    get password(){
+    get password() {
         return this.page.locator('#RegisterForm-password')
     }
-    get createBtn(){
+    get createBtn() {
         return this.page.getByRole('button', { name: 'Create' })
     }
-    get account(){
+    get account() {
         return this.page.locator(`[href$='/account']:visible`)
     }
-    get logout(){
+    get logout() {
         return this.page.locator(`[href$='/account/logout']:visible`)
     }
+    get capcha() {
+        return this.page.locator('.rc-inline-block')
+    }
+    get submitCapchaBtn() {
+        return this.page.locator('.shopify-challenge__button.btn')
+    }
 
-    async addAccount() {
+    async addAccount(title, firstName, lastName, email, password, time) {
+        console.log(email + " " + title);
         await this.login.click()
         await this.register.click()
-        await this.firstName.pressSequentially('hello', { delay: 300 })
-        await this.lastName.pressSequentially('world', { delay: 300 })
-        await this.email.pressSequentially('automation4@testing.com', { delay: 300 })
-        await this.password.pressSequentially('automation@123', { delay: 300 })
+        await this.firstName.pressSequentially(firstName, { delay: time })
+        await this.lastName.pressSequentially(lastName, { delay: time })
+        await this.email.pressSequentially(email, { delay: time })
+        await this.password.pressSequentially(password, { delay: time })
         await this.createBtn.click()
-        await this.account.click()
     }
-    
+
 }
 module.exports = CreateAccount;
