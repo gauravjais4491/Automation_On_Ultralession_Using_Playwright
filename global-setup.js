@@ -4,7 +4,7 @@ const globalSetup = async () => {
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.goto('https://web-playground.ultralesson.com/');
+    await page.goto('https://web-playground.ultralesson.com/', { waitUntil: 'networkidle' });
     await page.locator(`[href$='/account/login']:visible`).click()
     await page.locator('#CustomerEmail').pressSequentially(data.emailId, { delay: 500 })
     await page.locator('#CustomerPassword').pressSequentially(data.password, { delay: 500 })

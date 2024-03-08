@@ -9,9 +9,8 @@ test.beforeEach(async ({ context }) => {
 
 customTest('should create account', async ({ createAccount, generateData }, testInfo) => {
   const email = await generateData.generateEmailAddress()
-  let title = testInfo.title
-  console.log(email + " " + title);
-  await createAccount.addAccount(title, createAccountData.firstName, createAccountData.lastName, email, createAccountData.password, 100)
+  console.log(testInfo.title);
+  await createAccount.addAccount(createAccountData.firstName, createAccountData.lastName, email, createAccountData.password, 100)
 });
 
 
