@@ -2,6 +2,7 @@ const base = require('@playwright/test');
 const { chromium } = require('@playwright/test');
 import CreateAccount from '../PageObject/createAccount/createAccount';
 import GenerateData from '../Data/generateData';
+import SecurePageForCreateAccount from '../PageObject/createAccount/securePageForCreateAccount';
 
 export const customTest = base.test.extend({
     browser: async ({ }, use) => {
@@ -22,5 +23,8 @@ export const customTest = base.test.extend({
     },
     generateData: async ({ }, use) => {
         await use(new GenerateData())
+    },
+    securePageForCreateAccount: async ({ page }, use) => {
+        await use(new SecurePageForCreateAccount(page))
     }
 })
