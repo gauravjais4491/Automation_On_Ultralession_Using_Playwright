@@ -2,5 +2,6 @@
     "firstName":"Noob",
     "lastName":"Hacker",
     "password":"Noob_Hacker",
-    "delay":500
+    "delay":500,
+    "expectedTextForCreateAccount":"Log out"
 }

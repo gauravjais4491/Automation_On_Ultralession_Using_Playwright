@@ -1,9 +1,10 @@
 const base = require('@playwright/test');
 const { chromium } = require('@playwright/test');
-import CreateAccount from '../PageObject/createAccount/createAccount';
 import GenerateData from '../Data/generateData';
-import SecurePageForCreateAccount from '../PageObject/createAccount/securePageForCreateAccount';
 import Capcha from '../PageObject/Capcha/capcha';
+import Footer from '../PageObject/Footer/footer';
+import SecurePageForFooter from '../PageObject/Footer/securePageForFooter';
+
 
 export const customTest = base.test.extend({
     browser: async ({ }, use) => {
@@ -19,16 +20,16 @@ export const customTest = base.test.extend({
         await page.goto('/')
         await use(page)
     },
-    createAccount: async ({ page }, use) => {
-        await use(new CreateAccount(page))
-    },
     generateData: async ({ }, use) => {
         await use(new GenerateData())
     },
-    securePageForCreateAccount: async ({ page }, use) => {
-        await use(new SecurePageForCreateAccount(page))
-    },
     capcha: async ({ page }, use) => {
         await use(new Capcha(page))
+    },
+    footer: async ({ page }, use) => {
+        await use(new Footer(page))
+    },
+    securePageForFooter: async ({ page }, use) => {
+        await use(new SecurePageForFooter(page))
     }
 })

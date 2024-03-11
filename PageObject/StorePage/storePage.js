@@ -1,3 +1,5 @@
+const { expect } = require("playwright/test");
+
 class StorePage {
     constructor(page) {
         this.page = page;
@@ -15,9 +17,10 @@ class StorePage {
         await this.priceBtn.nth(1).click();
         await this.PriceGTE.fill(filterPriceFrom);
         await this.PriceLTE.fill(filterPriceTo);
-        await this.page.waitForTimeout(1000);
         await this.page.keyboard.press('Escape');
-        await this.page.waitForLoadState('networkidle')
+        while (await this.confirmationForFilters.count() !== 2) {
+
+        }
     }
 
     async filterProductAccordingToBrand(brand) {
@@ -31,10 +34,10 @@ class StorePage {
                 await this.clickBrandLabel(labelSelector);
             }
         }
-
-        await this.page.waitForTimeout(1000);
         await this.page.keyboard.press('Escape');
-        await this.page.waitForLoadState('networkidle')
+        while (await this.confirmationForFilters.count() !== Object.keys(brand).length + 1) {
+
+        }
     }
     async clickBrand() {
         await this.priceBtn.nth(3).click();
@@ -57,9 +60,10 @@ class StorePage {
                 await this.clickProductTypeLabel(labelSelector);
             }
         }
-        await this.page.waitForTimeout(1000);
         await this.page.keyboard.press('Escape');
-        await this.page.waitForLoadState('networkidle')
+        while (await this.confirmationForFilters.count() !== Object.keys(productTypes).length + 1) {
+
+        }
     }
     async clickProductType() {
         await this.priceBtn.nth(2).click();
@@ -77,19 +81,27 @@ class StorePage {
         for (let i = 1; i <= 100; i++) {
             const labelSelector = `//label[@for='Filter-Size-${i}']`;
             const size = await this.page.locator(labelSelector).textContent();
-            const trimmedSize = size.trim();
+            const sizeWithBracket = size.trim();
+            const indexOfBracket = sizeWithBracket.indexOf('(');
+            const trimmedSize = indexOfBracket !== -1 ? sizeWithBracket.substring(0, indexOfBracket).trim() : sizeWithBracket;
+
             if (this.productSizeMatches(productSizes, trimmedSize)) {
                 await this.clickSizeLabel(labelSelector);
             }
         }
-        await this.page.keyboard.press('Escape');
-        await this.page.waitForLoadState('networkidle')
+        await this.page.keyboard.press('Escape')
+        while (await this.confirmationForFilters.count() !== Object.keys(productSizes).length + 1) {
+
+        }
+    }
+    get confirmationForFilters() {
+        return this.page.locator('.active-facets.active-facets-desktop').locator(' > facet-remove').locator(' > a').locator(' > span')
     }
     async clickSizeBtn() {
         await this.priceBtn.nth(4).click();
     }
     productSizeMatches(productSizeArray, productType) {
-        return productSizeArray.some((size) => productType.includes(size));
+        return productSizeArray.some((size) => productType === size);
     }
     async clickSizeLabel(labelSelector) {
         const sizeLabel = await this.page.locator(labelSelector);

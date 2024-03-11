@@ -4,7 +4,7 @@ import ContactPage from '../PageObject/ContactPage/contactPage';
 import SecurePageForContactPage from '../PageObject/ContactPage/securePageForContactPage';
 import HomePage from '../PageObject/HomePage/homePage';
 import SecurePageForHomePage from '../PageObject/HomePage/securePageForHomePage';
-
+import Capcha from '../PageObject/Capcha/capcha';
 
 export const customTest = base.test.extend({
     browser: async ({ }, use) => {
@@ -31,5 +31,8 @@ export const customTest = base.test.extend({
     },
     securePageForHomePage: async ({ page }, use) => {
         await use(new SecurePageForHomePage(page))
+    },
+    capcha: async ({ page }, use) => {
+        await use(new Capcha(page))
     }
 })
