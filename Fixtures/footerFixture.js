@@ -4,7 +4,7 @@ import GenerateData from '../Data/generateData';
 import Capcha from '../PageObject/Capcha/capcha';
 import Footer from '../PageObject/Footer/footer';
 import SecurePageForFooter from '../PageObject/Footer/securePageForFooter';
-
+import HomePage from '../PageObject/HomePage/homePage';
 
 export const customTest = base.test.extend({
     browser: async ({ }, use) => {
@@ -31,5 +31,8 @@ export const customTest = base.test.extend({
     },
     securePageForFooter: async ({ page }, use) => {
         await use(new SecurePageForFooter(page))
+    },
+    homePage: async ({ page }, use) => {
+        await use(new HomePage(page))
     }
 })

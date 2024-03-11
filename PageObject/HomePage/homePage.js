@@ -10,9 +10,11 @@ class HomePage {
     }
     async goToStorePage() {
         await this.viewBtnForStore.click()
+        await this.page.waitForLoadState('networkidle')
     }
     async goToContactPage(){
         await this.viewBtnForContact.click()
+        await this.page.waitForLoadState('networkidle')
     }
 }
 module.exports = HomePage
