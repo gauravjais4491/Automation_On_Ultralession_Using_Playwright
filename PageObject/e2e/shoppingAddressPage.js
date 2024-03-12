@@ -10,7 +10,7 @@ class ShoppingAddressPage {
     };
 
     get addFirstName() {
-        return this.page.locator(`section:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)`)
+        return this.page.locator(`#shippingAddressForm>div>div>div:nth-child(2)> div:nth-child(1)`)
     }
     get addLastName() {
         return this.page.locator("#TextField1")
@@ -43,6 +43,6 @@ class ShoppingAddressPage {
         await this.addState.click({ force: true })
         await this.addState.selectOption(state)
         await this.addPostalCode.fill(postalCode)
-    };  
+    };
 }
 module.exports = ShoppingAddressPage
