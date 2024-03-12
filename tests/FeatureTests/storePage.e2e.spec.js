@@ -30,6 +30,17 @@ customTest('should filter product according to product size @productSize', async
 
 })
 
+customTest('Verify Filtering Functionality Based on Product Availability @stock', async ({ storePage, securePageForStorePage }) => {
+    await storePage.filterProductAccordingToStock(testData.stock)
+    await securePageForStorePage.isFilteredAccordingToStockOrNot(testData.stock)
+
+})
+customTest('Verify Filtering Functionality Based on Product Availability @outOfStock', async ({ storePage, securePageForStorePage }) => {
+    await storePage.filterProductAccordingToOutOfStock(testData.outOfStock)
+    await securePageForStorePage.isFilteredAccordingToOutOfStockOrNot(testData.outOfStock)
+
+})
+
 
 
 
