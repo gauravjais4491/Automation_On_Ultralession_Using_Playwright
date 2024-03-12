@@ -14,5 +14,4 @@ customTest('should create contact details', async ({ contactPage, securePageForC
     else {
         expect((await securePageForContactPage.flashMessage.textContent())?.trim()).toBe(contactData.expectTextForSubmitContact)
     }
-
 })
