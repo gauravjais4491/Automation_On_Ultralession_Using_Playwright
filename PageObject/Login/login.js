@@ -20,6 +20,7 @@ class Login {
         await this.emailId.pressSequentially(emailId, { delay: 500 })
         await this.password.pressSequentially(password, { delay: 500 })
         await this.signIn.click()
+        await this.page.waitForTimeout(3000)
     }
 
 }
