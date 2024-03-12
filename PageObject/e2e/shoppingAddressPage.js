@@ -10,7 +10,7 @@ class ShoppingAddressPage {
     };
 
     get addFirstName() {
-        return this.page.locator("#TextField0")
+        return this.page.locator(`//input[@id='TextField0']`)
     }
     get addLastName() {
         return this.page.locator("#TextField1")
@@ -32,9 +32,6 @@ class ShoppingAddressPage {
     }
     get addPostalCode() {
         return this.page.locator(`#TextField3`)
-    }
-    get addInformationForNextTime() {
-        return this.page.locator("[name=save_shipping_information]")
     }
     async addShippingAddress(firstName, lastName, address, city, state, postalCode) {
         await this.addFirstName.fill(firstName)
