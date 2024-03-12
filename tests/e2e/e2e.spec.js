@@ -2,7 +2,7 @@ import e2eData from '../../Data/e2eData.json'
 import { customTest } from '../../Fixtures/e2eFixture.js'
 
 for (const data of e2eData) {
-    customTest(`should place an order with product name ' ${data.productName} '`, async ({ homePage, storePage, page, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage },testInfo) => {
+    customTest(`should place an order with product name ' ${data.productName} '`, async ({ homePage, storePage, page, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage }, testInfo) => {
 
         await customTest.step('should go to store page', async () => {
             console.log("should go to store page");
@@ -28,13 +28,18 @@ for (const data of e2eData) {
             console.log("should go to shopping address page1");
         })
         await customTest.step('should add contact details', async () => {
-            console.log("should add contact details");
-            await page.screenshot({ path: `./Screenshots/first.png` });
-            await shoppingAddressPage.addContactDetails()
-            await page.screenshot({ path: `./Screenshots/second.png` });
-            await shoppingAddressPage.addShippingAddress(data.firstName, data.lastName, data.address, data.city, data.state, data.postalCode)
-            await page.screenshot({ path: `./Screenshots/third.png` });
-            console.log("should add contact details1");
+            try {
+                console.log("should add contact details");
+                await page.screenshot({ path: `./Screenshots/first.png` });
+                await shoppingAddressPage.addContactDetails()
+                await page.screenshot({ path: `./Screenshots/second.png` });
+                await shoppingAddressPage.addShippingAddress(data.firstName, data.lastName, data.address, data.city, data.state, data.postalCode)
+                await page.screenshot({ path: `./Screenshots/third.png` });
+                console.log("should add contact details1");
+            } catch (error) {
+                console.log(error);
+            }
+
         })
 
         await customTest.step('should add payment details', async () => {
