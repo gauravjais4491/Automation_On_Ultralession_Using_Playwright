@@ -1,3 +1,7 @@
+
+// Just for the demo because we all know unit test will be written by developer
+
+
 import { expect } from "playwright/test";
 import { customTest } from '../../Fixtures/footerFixture.js'
 

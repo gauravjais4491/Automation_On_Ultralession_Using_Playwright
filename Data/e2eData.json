@@ -1,0 +1,32 @@
+[
+    {
+        "cardNumber": "1125",
+        "expiry": "01/25",
+        "cvv": "123",
+        "nameOnCard": "Gaurav",
+        "email": "gaurav@example.com",
+        "firstName": "Gaurav",
+        "lastName": "Jaiswal",
+        "address": "TestVagrant",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "postalCode": "560008",
+        "productName": "15mm Combo Wrench",
+        "numberOfItems": "4"
+    },
+    {
+        "cardNumber": "1125",
+        "expiry": "01/25",
+        "cvv": "123",
+        "nameOnCard": "Gaurav",
+        "email": "gaurav2@example.com",
+        "firstName": "Gaurav2",
+        "lastName": "Jaiswal",
+        "address": "TestVagrant",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "postalCode": "560008",
+        "productName": "4mm 5mm 6mm Y-Wrench",
+        "numberOfItems": "4"
+    }
+]
