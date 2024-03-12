@@ -38,20 +38,22 @@ class ShoppingAddressPage {
     }
     async addShippingAddress(firstName, lastName, address, city, state, postalCode) {
         await this.addFirstName.fill(firstName)
-
+        await this.page.screenshot({ path: `./Screenshots/${firstName}.png` });
         await this.addLastName.fill(lastName)
-
+        await this.page.screenshot({ path: `./Screenshots/${lastName}.png` });
         await this.addDeliveryAddress.fill(address)
+        await this.page.screenshot({ path: `./Screenshots/${address}.png` });
         await this.suggestionBox.click({ force: true })
+        await this.page.screenshot({ path: `./Screenshots/${address}-suggestion.png` });
         await this.waitForDataLoad.waitFor('attached')
-
         await this.addCity.fill(city)
-
+        await this.page.screenshot({ path: `./Screenshots/${city}.png` });
         await this.addState.click({ force: true })
+        await this.page.screenshot({ path: `./Screenshots/${state}.png` });
         await this.addState.selectOption(state)
-
+        await this.page.screenshot({ path: `./Screenshots/${state}-selected.png` });
         await this.addPostalCode.fill(postalCode)
-
+        await this.page.screenshot({ path: `./Screenshots/${postalCode}.png` });
     };  
 }
 module.exports = ShoppingAddressPage
