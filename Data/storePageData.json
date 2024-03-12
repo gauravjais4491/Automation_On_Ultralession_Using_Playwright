@@ -1,0 +1,24 @@
+{
+    "expectedTextForStorePage": "Products",
+    "priceFrom": "0",
+    "priceTo": "500",
+    "brandName": [
+        "5 Octobre",
+        "Anon",
+        "Super Duper Hats",
+        "Rundholz BL"
+    ],
+    "productTypes": [
+        "Bags",
+        "Fixed Gear Bicycle",
+        "Home Accessories",
+        "unisex scarves",
+        "Womens Outerwear"
+    ],
+    "size": [
+        "XX-Large",
+        "Small",
+        "French 36",
+        "One Size"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "name":"Noob",
+    "email":"hello@example.com",
+    "phone":"1234567890",
+    "message":"Hey, I am Noob Hacker",
+    "expectTextForSubmitContact": "Thanks for contacting us. We'll get back to you as soon as possible."
+}

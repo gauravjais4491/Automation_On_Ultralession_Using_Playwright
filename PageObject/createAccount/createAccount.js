@@ -36,8 +36,7 @@ class CreateAccount {
         return this.page.locator('.shopify-challenge__button.btn')
     }
 
-    async addAccount(title, firstName, lastName, email, password, time) {
-        console.log(email + " " + title);
+    async addAccount(firstName, lastName, email, password, time) {
         await this.login.click()
         await this.register.click()
         await this.firstName.pressSequentially(firstName, { delay: time })

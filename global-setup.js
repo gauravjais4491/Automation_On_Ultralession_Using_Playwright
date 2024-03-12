@@ -1,16 +1,28 @@
 import { chromium, expect } from '@playwright/test';
 import data from './Data/userData.json'
+import Login from './PageObject/Login/login.js';
+import SecurePageForLogin from './PageObject/Login/securePageForLogin.js';
+import Capcha from './PageObject/Capcha/capcha.js';
+
 const globalSetup = async () => {
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.goto('https://web-playground.ultralesson.com/');
-    await page.locator(`[href$='/account/login']:visible`).click()
-    await page.locator('#CustomerEmail').pressSequentially(data.emailId, { delay: 500 })
-    await page.locator('#CustomerPassword').pressSequentially(data.password, { delay: 500 })
-    await page.getByRole('button', { name: 'Sign in' }).click()
-    await expect(page.locator(`a[href='/account/logout']`)).toBeVisible({ timeout: 30000 })
-    await page.context().storageState({ path: "./LoginAuthCQ.json" })
+    const capcha = new Capcha(page)
+    const title = 'globalSetup'
+    const login = new Login(page)
+    const securePageForLogin = new SecurePageForLogin(page)
+
+    await page.goto('https://web-playground.ultralesson.com/', { waitUntil: 'networkidle' });
+    await login.userLogin(data.emailId, data.password)
+    await page.waitForTimeout(3000)
+    if (await capcha.checkForCapcha(title)) {
+        console.log(`Capcha Caught in ${title}: `, (await capcha.flashCapcha.textContent())?.trim());
+    }
+    else {
+        await expect(await securePageForLogin.flashAlertForLogin).toBeVisible({ timeout: 30000 })
+        await page.context().storageState({ path: "./LoginAuthCQ.json" })
+    }
     await browser.close()
 };
 
