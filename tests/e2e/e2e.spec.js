@@ -29,8 +29,11 @@ for (const data of e2eData) {
         })
         await customTest.step('should add contact details', async () => {
             console.log("should add contact details");
+            await page.screenshot({ path: `./Screenshots/first.png` });
             await shoppingAddressPage.addContactDetails()
+            await page.screenshot({ path: `./Screenshots/second.png` });
             await shoppingAddressPage.addShippingAddress(data.firstName, data.lastName, data.address, data.city, data.state, data.postalCode)
+            await page.screenshot({ path: `./Screenshots/third.png` });
             console.log("should add contact details1");
         })
 
