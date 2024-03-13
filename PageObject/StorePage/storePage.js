@@ -5,21 +5,21 @@ class StorePage {
         this.page = page;
     }
     get priceBtn() {
-        return this.page.locator('.focus-offset div span');
+        return this.page.locator('#FacetsWrapperDesktop').getByText('Price', { exact: true })
     }
     get PriceGTE() {
-        return this.page.locator('#Filter-Price-GTE');
+        return this.page.getByRole('spinbutton', { name: 'From' })
     }
     get PriceLTE() {
-        return this.page.locator('#Filter-Price-LTE');
+        return this.page.getByRole('spinbutton', { name: 'To' })
     }
     async addPriceRange(filterPriceFrom, filterPriceTo) {
-        await this.priceBtn.nth(1).click();
+        await this.priceBtn.click();
         await this.PriceGTE.fill(filterPriceFrom);
         await this.PriceLTE.fill(filterPriceTo);
         await this.page.keyboard.press('Escape');
         while (await this.confirmationForFilters.count() !== 2) {
-
+            
         }
     }
 
@@ -39,8 +39,11 @@ class StorePage {
 
         }
     }
+    get brandBtn(){
+        return this.page.locator('#FacetsWrapperDesktop').getByText('Brand') 
+    }
     async clickBrand() {
-        await this.priceBtn.nth(3).click();
+        await this.brandBtn.click();
     }
     async clickBrandLabel(labelSelector) {
         const brandLabel = await this.page.locator(labelSelector);
@@ -65,8 +68,11 @@ class StorePage {
 
         }
     }
+    get productTypeBtn(){
+        return this.page.locator('#FacetsWrapperDesktop').getByText('Product type')
+    }
     async clickProductType() {
-        await this.priceBtn.nth(2).click();
+        await this.productTypeBtn.click();
     }
     productTypesMatches(productTypesArray, productType) {
         return productTypesArray.some((type) => productType.includes(type));
@@ -97,8 +103,11 @@ class StorePage {
     get confirmationForFilters() {
         return this.page.locator('.active-facets.active-facets-desktop').locator(' > facet-remove').locator(' > a').locator(' > span')
     }
+    get sizeBtn(){
+        return this.page.locator('#FacetsWrapperDesktop').getByText('Size', { exact: true })
+    }
     async clickSizeBtn() {
-        await this.priceBtn.nth(4).click();
+        await this.sizeBtn.click();
     }
     productSizeMatches(productSizeArray, productType) {
         return productSizeArray.some((size) => productType === size);

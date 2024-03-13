@@ -6,7 +6,7 @@ class ViewCartPage {
         return this.page.locator("#cart-notification-button");
     }
     get checkoutBtn() {
-        return this.page.locator("#checkout");
+        return this.page.getByRole('button', { name: 'Check out' })
     }
     async goToShoppingAddressPage() {
         await this.cartNotificationButton.click();

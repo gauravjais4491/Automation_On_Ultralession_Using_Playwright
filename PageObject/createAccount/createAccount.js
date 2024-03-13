@@ -3,10 +3,10 @@ class CreateAccount {
         this.page = page
     }
     get login() {
-        return this.page.locator(`[href$='/account/login']:visible`)
+        return this.page.getByRole('link', { name: 'Log in' })
     }
     get register() {
-        return this.page.locator(`[href$='/account/register']:visible`)
+        return this.page.getByRole('link', { name: 'Create account' })
     }
     get firstName() {
         return this.page.getByPlaceholder('First name')
@@ -18,22 +18,16 @@ class CreateAccount {
         return this.page.locator('#RegisterForm-email')
     }
     get password() {
-        return this.page.locator('#RegisterForm-password')
+        return this.page.getByPlaceholder('Password')
     }
     get createBtn() {
         return this.page.getByRole('button', { name: 'Create' })
     }
     get account() {
-        return this.page.locator(`[href$='/account']:visible`)
+        return this.page.getByRole('link', { name: 'Account' })
     }
     get logout() {
-        return this.page.locator(`[href$='/account/logout']:visible`)
-    }
-    get capcha() {
-        return this.page.locator('.rc-inline-block')
-    }
-    get submitCapchaBtn() {
-        return this.page.locator('.shopify-challenge__button.btn')
+        return this.page.getByRole('link', { name: 'Log out' })
     }
 
     async addAccount(firstName, lastName, email, password, time) {
