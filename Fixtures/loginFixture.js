@@ -15,6 +15,7 @@ export const customTest = base.test.extend({
     },
     page: async ({ context }, use) => {
         const page = await context.newPage()
+        await context.clearCookies()
         await page.goto('/')
         await use(page)
     },

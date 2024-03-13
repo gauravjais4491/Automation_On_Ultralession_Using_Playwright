@@ -3,6 +3,9 @@ class Login {
     constructor(page) {
         this.page = page
     }
+    get register() {
+        return this.page.getByRole('link', { name: 'Create account' })
+    }
     get loginBtn() {
         return this.page.getByRole('link', { name: 'Log in' })
     }
@@ -14,6 +17,10 @@ class Login {
     }
     get signIn() {
         return this.page.getByRole('button', { name: 'Sign in' })
+    }
+    async goToCreateAccountPage() {
+        await this.register.click()
+        await this.page.waitForLoadState('networkidle')
     }
     async userLogin(emailId, password) {
         await this.loginBtn.click()

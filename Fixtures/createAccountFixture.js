@@ -4,6 +4,8 @@ import CreateAccount from '../PageObject/createAccount/createAccount';
 import GenerateData from '../Data/generateData';
 import SecurePageForCreateAccount from '../PageObject/createAccount/securePageForCreateAccount';
 import Capcha from '../PageObject/Capcha/capcha';
+import HomePage from '../PageObject/HomePage/homePage';
+import Login from '../PageObject/Login/login';
 
 export const customTest = base.test.extend({
     browser: async ({ }, use) => {
@@ -16,8 +18,15 @@ export const customTest = base.test.extend({
     },
     page: async ({ context }, use) => {
         const page = await context.newPage()
-        await page.goto('/')
+        await context.clearCookies()
+        await page.goto('/', { waitUntil: 'networkidle' })
         await use(page)
+    },
+    homePage: async ({ page }, use) => {
+        await use(new HomePage(page))
+    },
+    login: async ({ page }, use) => {
+        await use(new Login(page))
     },
     createAccount: async ({ page }, use) => {
         await use(new CreateAccount(page))

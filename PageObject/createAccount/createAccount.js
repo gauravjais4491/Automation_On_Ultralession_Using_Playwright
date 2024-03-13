@@ -2,12 +2,6 @@ class CreateAccount {
     constructor(page) {
         this.page = page
     }
-    get login() {
-        return this.page.getByRole('link', { name: 'Log in' })
-    }
-    get register() {
-        return this.page.getByRole('link', { name: 'Create account' })
-    }
     get firstName() {
         return this.page.getByPlaceholder('First name')
     }
@@ -31,8 +25,6 @@ class CreateAccount {
     }
 
     async addAccount(firstName, lastName, email, password, time) {
-        await this.login.click()
-        await this.register.click()
         await this.firstName.pressSequentially(firstName, { delay: time })
         await this.lastName.pressSequentially(lastName, { delay: time })
         await this.email.pressSequentially(email, { delay: time })
