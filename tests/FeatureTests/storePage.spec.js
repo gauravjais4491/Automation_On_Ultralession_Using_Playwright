@@ -2,7 +2,7 @@ const testData = require('../../Data/storePageData.json');
 import { customTest } from '../../Fixtures/storePageFixture';
 
 
-customTest.beforeEach('Should go to store page', async ({ homePage, page }) => {
+customTest.beforeEach('Should go to store page', async ({ homePage }) => {
     await homePage.goToStorePage()
 })
 

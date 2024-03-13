@@ -3,10 +3,10 @@ class HomePage {
         this.page = page;
     }
     get viewBtnForStore() {
-        return this.page.locator('[href="/collections/all"] span')
+        return this.page.getByRole('link', { name: 'Store' })
     }
     get viewBtnForContact() {
-        return this.page.locator(`[href="/pages/contact"]:visible`)
+        return this.page.getByRole('link', { name: 'Contact' })
     }
     async goToStorePage() {
         await this.viewBtnForStore.click()

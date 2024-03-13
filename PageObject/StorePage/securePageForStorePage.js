@@ -46,13 +46,10 @@ class SecurePageForStorePage {
     }
 
     async isFilteredAccordingToPriceRangeOrNot(priceFrom, priceTo) {
-
         for (let i = 0; i < await this.eachProductIndividually.count(); i++) {
             const product = this.eachProductIndividually.nth(i);
             const priceLocator = await this.getPriceLocator(product);
-
             const productPrice = await this.getProductPrice(product, priceLocator);
-
             if (!this.isPriceInRange(productPrice, priceFrom, priceTo)) {
                 this.logPriceOutOfRangeError(productPrice, priceFrom, priceTo );
             }

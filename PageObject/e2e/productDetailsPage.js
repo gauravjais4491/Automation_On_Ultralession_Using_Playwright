@@ -3,7 +3,7 @@ class ProductDetailsPage {
         this.page = page
     }
     get inputQuantity() {
-        return this.page.locator(".quantity__input");
+        return this.page.getByLabel('Quantity');
     }
     get addToCartButton() {
         return this.page.getByRole('button', { name: "Add to cart" })

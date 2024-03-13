@@ -3,7 +3,7 @@ class SecurePageForContactPage {
         this.page = page;
     }
     get flashMessage(){
-        return this.page.locator('.form__message')
+        return this.page.getByText('Thanks for contacting us. We\'')
     }
 }
 module.exports = SecurePageForContactPage;

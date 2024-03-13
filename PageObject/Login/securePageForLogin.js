@@ -3,7 +3,7 @@ class SecurePageForLogin {
         this.page = page;
     }
     get flashAlertForLogin () {
-        return this.page.locator(`a[href='/account/logout']`)
+        return this.page.getByRole('link', { name: 'Log out' })
     }
 }
 module.exports = SecurePageForLogin;

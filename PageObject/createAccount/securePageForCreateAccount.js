@@ -2,11 +2,11 @@ class SecurePageForCreateAccount {
     constructor(page){
         this.page = page;
     }
-    get accountBtn(){
-        return this.page.locator(`[href$='/account']:visible`)
+    get accountBtn() {
+        return this.page.getByRole('link', { name: 'Account' })
     }
-    get logoutBtn(){
-        return this.page.locator(`[href$='/account/logout']:visible`)
+    get logoutBtn() {
+        return this.page.getByRole('link', { name: 'Log out' })
     }
     async clickAccount(){
         await this.accountBtn.click()

@@ -4,16 +4,16 @@ class ContactPage {
         this.page = page;
     }
     get name() {
-        return this.page.locator('#ContactForm-name')
+        return this.page.getByPlaceholder('Name')
     }
     get email() {
-        return this.page.locator('#ContactForm-email')
+        return this.page.getByLabel('Email *')
     }
     get phone() {
-        return this.page.locator('#ContactForm-phone')
+        return this.page.getByPlaceholder('Phone number')
     }
     get body() {
-        return this.page.locator('#ContactForm-body')
+        return this.page.getByPlaceholder('Comment')
     }
     get submitBtn() {
         return this.page.getByRole('button', { name: 'Send' })

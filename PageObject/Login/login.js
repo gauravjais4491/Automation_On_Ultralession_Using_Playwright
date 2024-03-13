@@ -4,13 +4,13 @@ class Login {
         this.page = page
     }
     get loginBtn() {
-        return this.page.locator(`[href$='/account/login']:visible`)
+        return this.page.getByRole('link', { name: 'Log in' })
     }
     get emailId() {
         return this.page.locator('#CustomerEmail')
     }
     get password() {
-        return this.page.locator('#CustomerPassword')
+        return this.page.getByPlaceholder('Password')
     }
     get signIn() {
         return this.page.getByRole('button', { name: 'Sign in' })
