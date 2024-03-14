@@ -8,7 +8,7 @@ customTest.beforeEach(async ({ context, homePage, login }) => {
     await homePage.goToLoginPage()
     await login.goToCreateAccountPage()
 })
-customTest('should take screenshot of create account page', async ({ page }) => {
-    await page.screenshot({ path: 'screenshot.png' })
+customTest('should take screenshot of create account page', async ({ page },testInfo) => {
+    await page.screenshot({ path: `./Screenshots/${testInfo.title}-${timestamp}.png` });
     await expect(page).toHaveScreenshot()
 })
