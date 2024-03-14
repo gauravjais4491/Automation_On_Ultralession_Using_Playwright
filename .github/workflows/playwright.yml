@@ -11,8 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shardIndex:
-          [1]
+        shardIndex: [1]
         shardTotal: [1]
     steps:
       - uses: actions/checkout@v4
@@ -23,8 +22,8 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Playwright tests ./tests/VisualTesting/createAccount.spec.js
-        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      - name: Run Playwright tests
+        run: npx playwright test ./tests/VisualTesting/createAccount.spec.js --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       - name: Upload Screenshots as Artifact
         if: failure()
         uses: actions/upload-artifact@v4
