@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test'
 import { customTest } from '../../Fixtures/createAccountFixture'
+import { argosScreenshot } from '@argos-ci/playwright'
 
 
 customTest.beforeEach(async ({ context, homePage, login }) => {
@@ -8,5 +9,6 @@ customTest.beforeEach(async ({ context, homePage, login }) => {
     await login.goToCreateAccountPage()
 })
 customTest('should take screenshot of create account page', async ({ page }) => {
+    await page.screenshot({ path: 'screenshot.png' })
     await expect(page).toHaveScreenshot()
 })
