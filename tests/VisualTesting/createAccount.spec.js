@@ -7,6 +7,6 @@ customTest.beforeEach(async ({ context, homePage, login }) => {
     await homePage.goToLoginPage()
     await login.goToCreateAccountPage()
 })
-customTest('should take screenshot', async ({ page }) => {
+customTest('should take screenshot of create account page', async ({ page }) => {
     await expect(page).toHaveScreenshot()
 })
