@@ -12,6 +12,7 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   globalSetup: 'global-setup.js',
+  // snapshotPathTemplate:,
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -41,6 +42,8 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'LoginAuthCQ.json',
+        viewport: { height: 1200, width: 1300 }
+
       },
     },
 
