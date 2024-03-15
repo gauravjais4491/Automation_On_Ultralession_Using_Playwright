@@ -41,7 +41,6 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'LoginAuthCQ.json',
-        viewport: { height: 1200, width: 650 }
       },
     },
 
