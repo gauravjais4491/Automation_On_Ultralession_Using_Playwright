@@ -1,4 +1,5 @@
 {
     "emailId": "noob_hacker@test.com",
-    "password": "Noob_Hacker"
+    "password": "Noob_Hacker",
+    "delayTime": 500
 }

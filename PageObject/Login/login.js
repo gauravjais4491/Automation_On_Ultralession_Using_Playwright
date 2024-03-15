@@ -22,10 +22,10 @@ class Login {
         await this.register.click()
         await this.page.waitForLoadState('networkidle')
     }
-    async userLogin(emailId, password) {
+    async userLogin(emailId, password, delayTime) {
         await this.loginBtn.click()
-        await this.emailId.pressSequentially(emailId, { delay: 500 })
-        await this.password.pressSequentially(password, { delay: 500 })
+        await this.emailId.pressSequentially(emailId, { delay: delayTime })
+        await this.password.pressSequentially(password, { delay: delayTime })
         await this.signIn.click()
         await this.page.waitForTimeout(3000)
     }
