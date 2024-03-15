@@ -1,11 +1,13 @@
 const { customTest } = require('../../Fixtures/createAccountFixture');
 import createAccountData from '../../Data/createAccountData.json'
-import test, { expect } from '@playwright/test';
+import { expect } from '@playwright/test';
 
 let email;
-test.beforeEach(async ({ context, generateData }) => {
+customTest.beforeEach(async ({ context, generateData, homePage, login }) => {
   await context.clearCookies()
   email = await generateData.generateEmailAddress()
+  await homePage.goToLoginPage()
+  await login.goToCreateAccountPage()
 })
 
 customTest('should create account', async ({ createAccount, securePageForCreateAccount, capcha }, testInfo) => {

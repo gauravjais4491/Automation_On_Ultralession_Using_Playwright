@@ -17,7 +17,7 @@ export const customTest = base.test.extend({
     },
     page: async ({ context }, use) => {
         const page = await context.newPage()
-        await page.goto('/')
+        await page.goto('/', { waitUntil: 'networkidle' })
         await use(page)
     },
     contactPage: async ({ page }, use) => {
