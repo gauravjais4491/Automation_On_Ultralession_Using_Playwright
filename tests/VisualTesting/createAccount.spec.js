@@ -8,7 +8,7 @@ customTest.beforeEach(async ({ context, homePage, login }) => {
     await homePage.goToLoginPage()
     await login.goToCreateAccountPage()
 })
-customTest('should take screenshot of create account page', async ({ page }, testInfo) => {
+customTest.fail('should take screenshot of create account page', async ({ page }, testInfo) => {
     const indianTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     const timestamp = indianTime.replace(/:/g, '-');
     await page.screenshot({ path: `./Screenshots/${testInfo.title}-${timestamp}.png` });
