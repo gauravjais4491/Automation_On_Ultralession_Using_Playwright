@@ -10,6 +10,6 @@ customTest.beforeEach('should go to contact page', async ({ homePage }) => {
 customTest.fail('should take screenshot of contact page', async ({ page }) => {
     await expect(page).toHaveScreenshot({
         mask: [page.getByRole('heading', { name: 'Contact' })],
-        maskColor: "red"
+        maskColor: "blue"
     })
 })
