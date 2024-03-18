@@ -12,5 +12,5 @@ customTest.fail('should take screenshot of create account page', async ({ page }
     const indianTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     const timestamp = indianTime.replace(/:/g, '-');
     await page.screenshot({ path: `./Screenshots/${testInfo.title}-${timestamp}.png` });
-    await expect(page).toHaveScreenshot()
+    await expect(page).toHaveScreenshot({ mask: [page.getByRole('heading', { name: 'Create Account' })], maskColor: "red" })
 })

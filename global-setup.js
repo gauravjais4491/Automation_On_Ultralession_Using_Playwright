@@ -14,7 +14,7 @@ const globalSetup = async () => {
     const securePageForLogin = new SecurePageForLogin(page)
 
     await page.goto('https://web-playground.ultralesson.com/', { waitUntil: 'networkidle' });
-    await login.userLogin(data.emailId, data.password)
+    await login.userLogin(data.emailId, data.password, data.delayTime)
     await page.waitForTimeout(3000)
     if (await capcha.checkForCapcha(title)) {
         console.log(`Capcha Caught in ${title}: `, (await capcha.flashCapcha.textContent())?.trim());
