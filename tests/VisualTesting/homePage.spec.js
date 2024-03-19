@@ -5,9 +5,10 @@ test.beforeEach(async ({ page }) => {
         await page.goto('/')
     })
 })
-test.fail('should take screenshot of home page', async ({ page }) => {
+test.only('should take screenshot of home page', async ({ page }) => {
+    await page.waitForTimeout(2000)
     await expect(page).toHaveScreenshot({
         mask: [page.getByRole('heading', { name: 'ul-web-playground' }).getByRole('link')],
-        maskColor: "black"
+        maskColor: "orange"
     })
 })
