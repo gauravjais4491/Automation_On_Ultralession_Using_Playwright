@@ -2,9 +2,19 @@ import e2eData from '../../Data/e2eData.json'
 import { customTest } from '../../Fixtures/e2eFixture.js'
 
 for (const data of e2eData) {
-    customTest(`should place an order with product name ' ${data.productName} '`, async ({ homePage, storePage, page, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage }, testInfo) => {
+    customTest(`should place an order with product name ' ${data.productName} '`, { tag: "@e2e" }, async ({ homePage, storePage, page, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage }, testInfo) => {
 
         await customTest.step('should go to store page', async () => {
+            const viewport = await page.evaluate(() => {
+                return {
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                };
+            });
+
+            if (viewport.width < 990) {
+                await page.locator('.header__icon--menu').click()
+            } 
             await homePage.goToStorePage()
         })
 

@@ -1,5 +1,6 @@
 {
     "emailId": "noob_hacker@test.com",
     "password": "Noob_Hacker",
-    "delayTime": 500
+    "delayTime": 500,
+    "url" : "https://web-playground.ultralesson.com/"
 }

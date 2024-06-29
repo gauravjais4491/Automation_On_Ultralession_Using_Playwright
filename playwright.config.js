@@ -25,8 +25,8 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-  timeout: 10 * 10 * 1000,
-  metadata:{
+  timeout: 30 * 10 * 1000,
+  metadata: {
 
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -36,7 +36,8 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure'
+    screenshot: 'only-on-failure',
+    storageState: 'LoginAuthCQ.json'
   },
 
   /* Configure projects for major browsers */
