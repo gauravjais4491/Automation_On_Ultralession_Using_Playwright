@@ -7,16 +7,20 @@ import ShoppingAddressPage from '../PageObject/e2e/shoppingAddressPage';
 import StorePage from '../PageObject/e2e/storePage';
 import HomePage from '../PageObject/HomePage/homePage';
 export const customTest = base.test.extend({
-    browser: async ({ }, use) => {
-        const browser = await chromium.launch()
-        await use(browser)
-    },
-    context: async ({ browser }, use) => {
-        const context = await browser.newContext()
-        await use(context)
-    },
-    page: async ({ context }, use) => {
-        const page = await context.newPage()
+    // browser: async ({ }, use) => {
+    //     const browser = await chromium.launch()
+    //     await use(browser)
+    // },
+    // context: async ({ browser }, use) => {
+    //     if (browser) {
+    //         const context = await browser.newContext()
+    //         await use(context)
+    //     }
+    // },
+    page: async ({ page }, use) => {
+        // const browser = await chromium.launch()
+        // const context = await browser.newContext()
+        // const page = await context.newPage()
         await page.goto('/', { waitUntil: 'networkidle' })
         await use(page)
     },

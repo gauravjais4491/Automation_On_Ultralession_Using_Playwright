@@ -6,7 +6,15 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
+  "scripts": {
+    "npm run e2e": "npm playwright run -e ./tests/e2e/*.spec.js",
+    "npm run feature-test": "npm playwright run ./tests/FeatureTests/*.spec.js",
+    "npm run unit-test": "npm playwright run ./tests/UnitTests/*.spec.js",
+    "postinstall": "npm update browserstack-node-sdk",
+    "e2e-browserstack": "npx playwright test ./tests/e2e/e2e.spec.js --config=playwright.config.js --headed",
+    "npm run feature-test-browserstack": "npm browserstack-node-sdk playwright run ./tests/FeatureTests/*.spec.js",
+    "npm run unit-test-browserstack": "npm browserstack-node-sdk playwright run ./tests/UnitTests/*.spec.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,7 +22,8 @@
     "@playwright/test": "^1.42.1",
     "@types/node": "^20.11.25",
     "allure-playwright": "^2.11.1",
-    "dotenv": "^16.4.3",
+    "browserstack-node-sdk": "^1.34.1",
+    "dotenv": "^16.4.5",
     "eslint-plugin-playwright": "^0.22.1"
   },
   "dependencies": {

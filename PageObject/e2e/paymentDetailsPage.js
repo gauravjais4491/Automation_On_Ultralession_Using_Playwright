@@ -15,7 +15,7 @@ class PaymentDetailsPage {
         return this.page.frameLocator(`//*[@class='card-fields-iframe' and @title='Field container for: Security code']`)
     }
     get payBtn() {
-        return this.page.locator(`div[id='pay-button-container'] button`)
+        return this.page.getByRole('button', { name: 'Pay now' })
     }
     get number() {
         return this.iframe_number.locator("#number")
