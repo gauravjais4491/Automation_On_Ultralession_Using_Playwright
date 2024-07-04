@@ -1,8 +1,16 @@
+import { expect } from 'playwright/test'
 import e2eData from '../../Data/e2eData.json'
 import { customTest } from '../../Fixtures/e2eFixture.js'
 
+
+
 for (const data of e2eData) {
+    customTest.use({ storageState: "./LoginAuthCQ.json" })
+
     customTest(`should place an order with product name ' ${data.productName} '`, { tag: "@e2e" }, async ({ homePage, storePage, page, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage }, testInfo) => {
+        // await browser.contexts()[0].storageState({ path: "./LoginAuthCQ.json" })
+
+        // await browserContext.addCookies('../../LoginAuthCQ.json');
 
         await customTest.step('should go to store page', async () => {
             const viewport = await page.evaluate(() => {
@@ -14,7 +22,7 @@ for (const data of e2eData) {
 
             if (viewport.width < 990) {
                 await page.locator('.header__icon--menu').click()
-            } 
+            }
             await homePage.goToStorePage()
         })
 
@@ -37,6 +45,8 @@ for (const data of e2eData) {
         await customTest.step('should add payment details', async () => {
             await paymentDetailsPage.addPaymentDeatils(data.cardNumber, data.nameOnCard, data.expiry, data.cvv)
         })
+
+        await expect()
     })
 }
 

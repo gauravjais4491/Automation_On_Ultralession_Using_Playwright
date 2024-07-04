@@ -4,7 +4,16 @@ playwright-report/
 /blob-report/
 /playwright/.cache/
 .DS_Store
-/Screenshots/*
+/Screenshots/
 local.log
-/log/*
+/log/
+package-lock.json
+
+
+
+
+
+
+
+
 
