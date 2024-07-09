@@ -21,7 +21,7 @@ const globalSetup = async () => {
     }
     else {
         await expect(await securePageForLogin.flashAlertForLogin).toBeVisible({ timeout: 30000 })
-        await page.context().storageState({ path: "./LoginAuthCQ.json" })
+        await page.context().storageState({ path: "./LoginAuthCQ1.json" })
     }
     await browser.close()
 };

@@ -37,49 +37,47 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    storageState: 'LoginAuthCQ.json'
+    storageState: 'LoginAuthCQ1.json'
   },
 
   /* Configure projects for major browsers */
-  // projects: [
-  //   {
-  //     name: 'chromium',
-  //     use: {
-  //       ...devices['Desktop Chrome'],
-  //       storageState: 'LoginAuthCQ.json',
-  //       // viewport: { height: 1200, width: 1300 }
-
-  //     },
-  //   },
-
   projects: [
     {
-      name: 'browserstack:chrome',
+      name: 'chromium',
       use: {
-        browserName: 'chromium',
-        storageState: 'LoginAuthCQ.json',
-        // BrowserStack specific options
-        launchOptions: {
-          args: [
-            '--disable-web-security',
-            '--disable-features=IsolateOrigins,site-per-process',
-          ],
-        },
-        // Pass BrowserStack capabilities
-        userAgent: `browserstack-user-agent`,
-        browserstack: {
-          username: process.env.BROWSERSTACK_USERNAME,
-          accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
-          project: 'BrowserStack Samples',
-          build: `browserstack build #${process.env.BUILD_NUMBER || 'local'}`,
-          name: 'Playwright Test',
-          debug: true,
-          networkLogs: true,
-          consoleLogs: 'errors',
-        },
+        ...devices['Desktop Chrome'],
       },
     },
-  ],
+  ]
+
+  // projects: [
+  //   {
+  //     name: 'browserstack:chrome',
+  //     use: {
+  //       browserName: 'chromium',
+  //       storageState: 'LoginAuthCQ.json',
+  //       // BrowserStack specific options
+  //       launchOptions: {
+  //         args: [
+  //           '--disable-web-security',
+  //           '--disable-features=IsolateOrigins,site-per-process',
+  //         ],
+  //       },
+  //       // Pass BrowserStack capabilities
+  //       userAgent: `browserstack-user-agent`,
+  //       browserstack: {
+  //         username: process.env.BROWSERSTACK_USERNAME,
+  //         accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
+  //         project: 'BrowserStack Samples',
+  //         build: `browserstack build #${process.env.BUILD_NUMBER || 'local'}`,
+  //         name: 'Playwright Test',
+  //         debug: true,
+  //         networkLogs: true,
+  //         consoleLogs: 'errors',
+  //       },
+  //     },
+  //   },
+  // ],
 
   // {
   //   name: 'firefox',
