@@ -8,8 +8,10 @@ playwright-report/
 local.log
 /log/
 package-lock.json
-
+LoginAuthCQ1.json
 .env/
+
+
 
 
 
