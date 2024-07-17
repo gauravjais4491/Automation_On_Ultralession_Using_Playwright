@@ -11,7 +11,7 @@ customTest.beforeEach(async ({ context }) => {
 })
 
 
-customTest('should login', async ({ page, login, securePageForLogin, capcha }, testInfo) => {
+customTest('should login', async ({ login, securePageForLogin, capcha }, testInfo) => {
     await login.userLogin(data.emailId, data.password, data.delayTime)
     if (await capcha.checkForCapcha(testInfo.title)) {
         console.log(`Capcha Caught in ${testInfo.title}: `, (await capcha.flashCapcha.textContent())?.trim());
