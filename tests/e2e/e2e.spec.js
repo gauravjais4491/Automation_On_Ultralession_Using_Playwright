@@ -5,13 +5,9 @@ import { customTest } from '../../Fixtures/e2eFixture.js'
 
 
 for (const data of e2eData) {
-    customTest.use({ storageState: "./LoginAuthCQ.json" })
+    customTest.use({ storageState: "./LoginAuthCQ1.json" })
 
     customTest(`should place an order with product name ' ${data.productName} '`, { tag: "@e2e" }, async ({ homePage, storePage, page, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage }, testInfo) => {
-        // await browser.contexts()[0].storageState({ path: "./LoginAuthCQ.json" })
-
-        // await browserContext.addCookies('../../LoginAuthCQ.json');
-
         await customTest.step('should go to store page', async () => {
             const viewport = await page.evaluate(() => {
                 return {

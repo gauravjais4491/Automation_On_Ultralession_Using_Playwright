@@ -18,6 +18,5 @@ customTest('should login', async ({ page, login, securePageForLogin, capcha }, t
     }
     else {
         await expect(await securePageForLogin.flashAlertForLogin).toBeVisible({ timeout: 30000 })
-        await page.context().storageState({ path: "./LoginAuthCQ.json" })
     }
 })
