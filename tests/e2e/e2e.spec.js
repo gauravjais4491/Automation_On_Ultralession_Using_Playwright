@@ -5,13 +5,9 @@ import { customTest } from '../../Fixtures/e2eFixture.js'
 
 
 for (const data of e2eData) {
-    customTest.use({ storageState: "./LoginAuthCQ.json" })
+    // customTest.use({ storageState: "./LoginAuthCQ1.json" })
 
-    customTest(`should place an order with product name ' ${data.productName} '`, { tag: "@e2e" }, async ({ homePage, storePage, page, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage }, testInfo) => {
-        // await browser.contexts()[0].storageState({ path: "./LoginAuthCQ.json" })
-
-        // await browserContext.addCookies('../../LoginAuthCQ.json');
-
+    customTest(`should place an order with product name ' ${data.productName} '`, { tag: "@e2e" }, async ({ homePage, storePage, productDetailsPage, viewCartPage, shoppingAddressPage, paymentDetailsPage, page }, testInfo) => {
         await customTest.step('should go to store page', async () => {
             const viewport = await page.evaluate(() => {
                 return {
@@ -37,16 +33,13 @@ for (const data of e2eData) {
         await customTest.step('should go to shopping address page', async () => {
             await viewCartPage.goToShoppingAddressPage();
         })
-        await customTest.step('should add contact details', async () => {
-            await shoppingAddressPage.addContactDetails()
+        await customTest.step('should add shippping address details', async () => {
             await shoppingAddressPage.addShippingAddress(data.firstName, data.lastName, data.address, data.city, data.state, data.postalCode)
         })
 
         await customTest.step('should add payment details', async () => {
             await paymentDetailsPage.addPaymentDeatils(data.cardNumber, data.nameOnCard, data.expiry, data.cvv)
         })
-
-        await expect()
     })
 }
 

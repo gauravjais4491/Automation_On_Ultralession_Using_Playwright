@@ -2,13 +2,6 @@ class ShoppingAddressPage {
     constructor(page) {
         this.page = page
     }
-    get checkUpdateNewsAndOfferButton() {
-        return this.page.getByLabel('Email me with news and offers')
-    }
-    async addContactDetails() {
-        await this.checkUpdateNewsAndOfferButton.click()
-    };
-
     get addFirstName() {
         return this.page.getByLabel('First name (optional)')
     }

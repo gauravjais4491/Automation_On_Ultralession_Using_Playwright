@@ -1,0 +1,135 @@
+{
+  "cookies": [
+    {
+      "name": "localization",
+      "value": "IN",
+      "domain": "web-playground.ultralesson.com",
+      "path": "/",
+      "expires": 1753272351.074427,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "cart_currency",
+      "value": "INR",
+      "domain": "web-playground.ultralesson.com",
+      "path": "/",
+      "expires": 1722945951.074533,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_tracking_consent",
+      "value": "%7B%22con%22%3A%7B%22CMP%22%3A%7B%22a%22%3A%22%22%2C%22m%22%3A%22%22%2C%22p%22%3A%22%22%2C%22s%22%3A%22%22%7D%7D%2C%22v%22%3A%222.1%22%2C%22region%22%3A%22INKA%22%2C%22reg%22%3A%22%22%7D",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1753272329.554524,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_cmp_a",
+      "value": "%7B%22purposes%22%3A%7B%22a%22%3Atrue%2C%22p%22%3Atrue%2C%22m%22%3Atrue%2C%22t%22%3Atrue%7D%2C%22display_banner%22%3Afalse%2C%22sale_of_data_region%22%3Afalse%7D",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1721822751.074638,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_shopify_y",
+      "value": "cbd67281-720a-40a4-8c22-d85e3ccc5de9",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1753272351.074756,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_orig_referrer",
+      "value": "",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1722945929.554678,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_landing_page",
+      "value": "%2F",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1722945929.55471,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "receive-cookie-deprecation",
+      "value": "1",
+      "domain": "web-playground.ultralesson.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_shopify_sa_p",
+      "value": "",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1721738151,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_shopify_essential",
+      "value": ":AZDfe4B0AAH_QiDKpQW_kjF-oLGgdW5vEGaqTqZQCwSfigeTm5weUO0P83Oxr3GKKZvL77f_UHeBh8fO7mfLWROobcIKMUDUjpU2DO5Ac4xUQnzTd3SKSDhCtNXd:",
+      "domain": "web-playground.ultralesson.com",
+      "path": "/",
+      "expires": 1753272350.212888,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "secure_customer_sig",
+      "value": "db64df0393ee9114c4d19c0423752852",
+      "domain": "web-playground.ultralesson.com",
+      "path": "/",
+      "expires": 1753272351.074159,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_shopify_s",
+      "value": "f9360377-f9cc-499a-a587-58c8ef3e6de4",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1721738151,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_shopify_sa_t",
+      "value": "2024-07-23T12%3A05%3A51.118Z",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1721738151,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
