@@ -7,13 +7,15 @@
     "test": "tests"
   },
   "scripts": {
-    "npm run e2e": "npm playwright run -e ./tests/e2e/*.spec.js",
-    "npm run feature-test": "npm playwright run ./tests/FeatureTests/*.spec.js",
-    "npm run unit-test": "npm playwright run ./tests/UnitTests/*.spec.js",
-    "postinstall": "npm update browserstack-node-sdk",
+    "test-all": "npx playwright test ./tests/**/*.spec.js --headed",
+    "e2e-test": "npx playwright test -e ./tests/e2e/*.spec.js",
+    "feature-test": "npx playwright test ./tests/FeatureTests/*.spec.js",
+    "visual-test": "npx playwright test ./tests/VisualTesting/*.spec.js",
+    "unit-test": "npx playwright test ./tests/UnitTests/*.spec.js",
+    "postinstall": "npx update browserstack-node-sdk",
     "e2e-browserstack": "npx playwright test ./tests/e2e/e2e.spec.js --config=playwright.config.js --headed",
-    "npm run feature-test-browserstack": "npm browserstack-node-sdk playwright run ./tests/FeatureTests/*.spec.js",
-    "npm run unit-test-browserstack": "npm browserstack-node-sdk playwright run ./tests/UnitTests/*.spec.js"
+    "feature-test-browserstack": "npx browserstack-node-sdk playwright run ./tests/FeatureTests/*.spec.js",
+    "unit-test-browserstack": "npx browserstack-node-sdk playwright run ./tests/UnitTests/*.spec.js"
   },
   "keywords": [],
   "author": "",
