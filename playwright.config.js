@@ -21,7 +21,7 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html', { outputFolder: 'playwright-report', open: 'always' }], ['list']],
   timeout: 10 * 10 * 1000,
   metadata: {
 
@@ -35,8 +35,10 @@ module.exports = defineConfig({
 
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on',
     screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    headless: false,
     storageState: 'LoginAuthCQ1.json'
   },
 
