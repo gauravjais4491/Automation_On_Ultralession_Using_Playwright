@@ -26,11 +26,18 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --reporter=html --output=playwright-report-${{ matrix.shardIndex }}
-      - name: Upload Shard Reports as Artifacts
+        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      - name: Upload Screenshots as Artifact
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ matrix.shardIndex }}-${{ github.run_id }}
+          path: Screenshots/
+          retention-days: 30
+      - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ matrix.shardIndex }}
-          path: playwright-report-${{ matrix.shardIndex }}/
+          name: playwright-report-${{ github.run_id }}
+          path: playwright-report/
           retention-days: 30
