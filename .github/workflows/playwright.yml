@@ -34,39 +34,3 @@ jobs:
           name: playwright-report-${{ matrix.shardIndex }}
           path: playwright-report-${{ matrix.shardIndex }}/
           retention-days: 30
-
-  generate-combined-report:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - name: Install dependencies
-        run: npm ci
-      - name: Create combined-report directory
-        run: mkdir -p combined-report
-      - name: Download Shard 1 Report
-        uses: actions/download-artifact@v4
-        with:
-          name: playwright-report-1
-          path: combined-report/
-      - name: Download Additional Shard Reports
-        run: |
-          for i in $(seq 2 19); do
-            echo "Downloading shard $i"
-            curl -L -o combined-report/playwright-report-$i.zip https://api.github.com/repos/${{ github.repository }}/actions/artifacts/$(gh api /repos/${{ github.repository }}/actions/artifacts | jq -r '.artifacts[] | select(.name == "playwright-report-'$i'") | .id')
-            mkdir -p combined-report/playwright-report-$i
-            unzip -q combined-report/playwright-report-$i.zip -d combined-report/playwright-report-$i
-          done
-      - name: Generate Single HTML Report
-        run: |
-          mkdir -p final-report
-          npx playwright show-report combined-report/ --output=final-report/
-      - name: Upload Combined HTML Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: final-report
-          path: final-report/
-          retention-days: 30
