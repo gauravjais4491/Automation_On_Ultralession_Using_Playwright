@@ -31,13 +31,13 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: screenshots-${{ matrix.shardIndex }}-${{ github.run_id }}
+          name: screenshots-${{ matrix.shardIndex }}-${{ github.run_id }}-${{ github.run_number }}
           path: Screenshots/
           retention-days: 30
       - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ github.run_id }}
+          name: playwright-report-${{ matrix.shardIndex }}-${{ github.run_id }}-${{ github.run_number }}
           path: playwright-report/
           retention-days: 30
