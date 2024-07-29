@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test-all": "npx playwright test ./tests/**/*.spec.js",
+    "install-dependency": "npm install",
+    "c": "npx playwright test ./tests/**/*.spec.js",
     "e2e-test": "npx playwright test -e ./tests/e2e/*.spec.js",
     "feature-test": "npx playwright test ./tests/FeatureTests/*.spec.js",
     "visual-test": "npx playwright test ./tests/VisualTesting/*.spec.js",
