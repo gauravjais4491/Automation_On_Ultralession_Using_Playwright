@@ -1,9 +1,9 @@
 const base = require('@playwright/test');
 const { chromium } = require('@playwright/test');
 import GenerateData from '../Data/generateData';
-import Captcha from '../CommonUtils/captcha';
-import Footer from '../PageObject/Footer/footer';
-import SecurePageForFooter from '../PageObject/Footer/securePageForFooter';
+import Captcha from '../CommonUtils/Captcha/captcha';
+import Footer from '../CommonUtils/Footer/footer';
+import SecurePageForFooter from '../CommonUtils/Footer/securePageForFooter';
 import HomePage from '../PageObject/HomePage/homePage';
 
 export const customTest = base.test.extend({
