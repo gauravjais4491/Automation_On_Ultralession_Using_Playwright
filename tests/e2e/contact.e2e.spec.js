@@ -6,10 +6,10 @@ customTest.beforeEach('should go to contact page', async ({ homePage }) => {
     await homePage.goToContactPage()
 
 })
-customTest('should create contact details', async ({ contactPage, securePageForContactPage, capcha }, testInfo) => {
+customTest('should create contact details', async ({ contactPage, securePageForContactPage, captcha }, testInfo) => {
     await contactPage.addContactDetails(contactData.name, contactData.email, contactData.phone, contactData.message)
-    if (await capcha.checkForCapcha(testInfo.title)) {
-        console.log(`Capcha Caught in ${testInfo.title}: `, (await capcha.flashCapcha.textContent())?.trim());
+    if (await captcha.checkForCaptcha(testInfo.title)) {
+        console.log(`Captcha Caught in ${testInfo.title}: `, (await captcha.flashCaptcha.textContent())?.trim());
     }
     else {
         expect((await securePageForContactPage.flashMessage.textContent())?.trim()).toBe(contactData.expectTextForSubmitContact)

@@ -2,7 +2,7 @@ const base = require('@playwright/test');
 const { chromium } = require('@playwright/test');
 import Login from '../PageObject/Login/login';
 import SecurePageForLogin from '../PageObject/Login/securePageForLogin';
-import Capcha from '../PageObject/Capcha/capcha';
+import Captcha from '../PageObject/Captcha/captcha';
 
 export const customTest = base.test.extend({
     browser: async ({ }, use) => {
@@ -20,7 +20,7 @@ export const customTest = base.test.extend({
         await use(page)
     },
     capcha: async ({ page }, use) => {
-        await use(new Capcha(page))
+        await use(new Captcha(page))
     },
     login: async ({ page }, use) => {
         await use(new Login(page))

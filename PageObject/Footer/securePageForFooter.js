@@ -2,7 +2,7 @@ class SecurePageForFooter {
     constructor(page) {
         this.page = page;
     }
-    get flashForSuscribeSucessfully(){
+    get flashForSubscribeSuccessfully(){
         return this.page.locator('#ContactFooter-success')
     }
 }

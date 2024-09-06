@@ -10,10 +10,10 @@ customTest.beforeEach(async ({ context, generateData, homePage, login }) => {
   await login.goToCreateAccountPage()
 })
 
-customTest('should create account', async ({ createAccount, securePageForCreateAccount, capcha }, testInfo) => {
+customTest('should create account', async ({ createAccount, securePageForCreateAccount, captcha }, testInfo) => {
   await createAccount.addAccount(createAccountData.firstName, createAccountData.lastName, email, createAccountData.password, createAccountData.delay)
-  if (await capcha.checkForCapcha(testInfo.title)) {
-    console.log(`Capcha Caught in ${testInfo.title}: `, (await capcha.flashCapcha.textContent())?.trim());
+  if (await captcha.checkForCaptcha(testInfo.title)) {
+    console.log(`Captcha Caught in ${testInfo.title}: `, (await captcha.flashCaptcha.textContent())?.trim());
   }
   else {
     await securePageForCreateAccount.clickAccount()

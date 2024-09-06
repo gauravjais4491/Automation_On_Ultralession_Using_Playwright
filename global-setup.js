@@ -2,13 +2,13 @@ import { chromium, expect } from '@playwright/test';
 import data from './Data/userData.json'
 import Login from './PageObject/Login/login.js';
 import SecurePageForLogin from './PageObject/Login/securePageForLogin.js';
-import Capcha from './PageObject/Capcha/capcha.js';
+import Captcha from './PageObject/Captcha/captcha.js';
 
 const globalSetup = async () => {
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
-    const capcha = new Capcha(page)
+    const captcha = new Captcha(page)
     const title = 'globalSetup'
     const login = new Login(page)
     const securePageForLogin = new SecurePageForLogin(page)
@@ -16,8 +16,8 @@ const globalSetup = async () => {
     await page.goto(data.url, { waitUntil: 'networkidle' });
     await login.userLogin(data.emailId, data.password, data.delayTime)
     await page.waitForTimeout(3000)
-    if (await capcha.checkForCapcha(title)) {
-        console.log(`Capcha Caught in ${title}: `, (await capcha.flashCapcha.textContent())?.trim());
+    if (await captcha.checkForCaptcha(title)) {
+        console.log(`Captcha Caught in ${title}: `, (await captcha.flashCaptcha.textContent())?.trim());
     }
     else {
         await expect(await securePageForLogin.flashAlertForLogin).toBeVisible({ timeout: 30000 })

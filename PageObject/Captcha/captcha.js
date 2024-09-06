@@ -1,18 +1,16 @@
-const { fa } = require("faker/lib/locales")
-
-class Capcha {
+class Captcha {
     constructor(page) {
         this.page = page
     }
-    get flashCapcha() {
+    get flashCaptcha() {
         return this.page.locator('.shopify-challenge__message')
     }
     async confirmationForEvents(selector) {
         return this.page.locator(selector)
     }
-    async checkForCapcha(title) {
+    async checkForCaptcha(title) {
         await this.page.waitForTimeout(3000)
-        if (await this.flashCapcha.isVisible()) {
+        if (await this.flashCaptcha.isVisible()) {
             const indianTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
             const timestamp = indianTime.replace(/:/g, '-');
             await this.page.screenshot({ path: `./Screenshots/${title}-${timestamp}.png` });
@@ -22,4 +20,4 @@ class Capcha {
     }
 }
 
-module.exports = Capcha;
+module.exports = Captcha;

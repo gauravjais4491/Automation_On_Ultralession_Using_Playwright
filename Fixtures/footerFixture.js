@@ -1,7 +1,7 @@
 const base = require('@playwright/test');
 const { chromium } = require('@playwright/test');
 import GenerateData from '../Data/generateData';
-import Capcha from '../PageObject/Capcha/capcha';
+import Captcha from '../PageObject/Captcha/captcha';
 import Footer from '../PageObject/Footer/footer';
 import SecurePageForFooter from '../PageObject/Footer/securePageForFooter';
 import HomePage from '../PageObject/HomePage/homePage';
@@ -23,8 +23,8 @@ export const customTest = base.test.extend({
     generateData: async ({ }, use) => {
         await use(new GenerateData())
     },
-    capcha: async ({ page }, use) => {
-        await use(new Capcha(page))
+    captcha: async ({ page }, use) => {
+        await use(new Captcha(page))
     },
     footer: async ({ page }, use) => {
         await use(new Footer(page))
