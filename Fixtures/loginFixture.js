@@ -19,7 +19,7 @@ export const customTest = base.test.extend({
         await page.goto('/')
         await use(page)
     },
-    capcha: async ({ page }, use) => {
+    captcha: async ({ page }, use) => {
         await use(new Captcha(page))
     },
     login: async ({ page }, use) => {
