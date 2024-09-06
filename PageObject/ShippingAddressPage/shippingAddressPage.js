@@ -1,4 +1,4 @@
-class ShoppingAddressPage {
+class ShippingAddressPage {
     constructor(page) {
         this.page = page
     }
@@ -38,4 +38,4 @@ class ShoppingAddressPage {
         await this.addPostalCode.fill(postalCode)
     };
 }
-module.exports = ShoppingAddressPage
+module.exports = ShippingAddressPage

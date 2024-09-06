@@ -1,10 +1,10 @@
 const base = require('@playwright/test');
 const { chromium } = require('@playwright/test');
-import ViewCartPage from '../PageObject/e2e/viewCartPage';
-import PaymentDetailsPage from '../PageObject/e2e/paymentDetailsPage';
-import ProductDetailsPage from '../PageObject/e2e/productDetailsPage';
-import ShoppingAddressPage from '../PageObject/e2e/shoppingAddressPage';
-import StorePage from '../PageObject/e2e/storePage';
+import ViewCartPage from '../PageObject/CartPage/viewCartPage';
+import PaymentDetailsPage from '../PageObject/PaymentDetailsPage/paymentDetailsPage';
+import ProductDetailsPage from '../PageObject/ProductDetailsPage/productDetailsPage';
+import ShippingAddressPage from '../PageObject/ShippingAddressPage/shippingAddressPage';
+import StorePage from '../PageObject/StorePage/storePage';
 import HomePage from '../PageObject/HomePage/homePage';
 export const customTest = base.test.extend({
     // browser: async ({ }, use) => {
@@ -37,7 +37,7 @@ export const customTest = base.test.extend({
         await use(new ProductDetailsPage(page))
     },
     shoppingAddressPage: async ({ page }, use) => {
-        await use(new ShoppingAddressPage(page))
+        await use(new ShippingAddressPage(page))
     },
     storePage: async ({ page }, use) => {
         await use(new StorePage(page))
