@@ -1,7 +1,7 @@
 const base = require('@playwright/test');
 const { chromium } = require('@playwright/test');
 import GenerateData from '../Data/generateData';
-import Captcha from '../PageObject/Captcha/captcha';
+import Captcha from '../CommonUtils/captcha';
 import Footer from '../PageObject/Footer/footer';
 import SecurePageForFooter from '../PageObject/Footer/securePageForFooter';
 import HomePage from '../PageObject/HomePage/homePage';

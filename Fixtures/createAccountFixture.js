@@ -3,7 +3,7 @@ const { chromium } = require('@playwright/test');
 import CreateAccount from '../PageObject/createAccount/createAccount';
 import GenerateData from '../Data/generateData';
 import SecurePageForCreateAccount from '../PageObject/createAccount/securePageForCreateAccount';
-import Captcha from '../PageObject/Captcha/captcha';
+import Captcha from '../CommonUtils/captcha';
 import HomePage from '../PageObject/HomePage/homePage';
 import Login from '../PageObject/Login/login';
 

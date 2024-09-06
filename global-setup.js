@@ -2,7 +2,7 @@ import { chromium, expect } from '@playwright/test';
 import data from './Data/userData.json'
 import Login from './PageObject/Login/login.js';
 import SecurePageForLogin from './PageObject/Login/securePageForLogin.js';
-import Captcha from './PageObject/Captcha/captcha.js';
+import Captcha from './CommonUtils/captcha.js';
 
 const globalSetup = async () => {
     const browser = await chromium.launch();

@@ -4,7 +4,7 @@ import ContactPage from '../PageObject/ContactPage/contactPage';
 import SecurePageForContactPage from '../PageObject/ContactPage/securePageForContactPage';
 import HomePage from '../PageObject/HomePage/homePage';
 import SecurePageForHomePage from '../PageObject/HomePage/securePageForHomePage';
-import Captcha from '../PageObject/Captcha/captcha';
+import Captcha from '../CommonUtils/captcha';
 
 export const customTest = base.test.extend({
     browser: async ({ }, use) => {
