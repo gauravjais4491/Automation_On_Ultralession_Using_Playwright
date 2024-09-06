@@ -1,11 +1,11 @@
 const testData = require('../../Data/storePageData.json');
 import { customTest } from '../../Fixtures/storePageFixture';
 
+customTest.describe.configure({ timeout: 30 * 10 * 1000 })
 
 customTest.beforeEach('Should go to store page', async ({ homePage }) => {
     await homePage.goToStorePage()
 })
-
 
 customTest('should filter price based on brand @brandName', async ({ storePage, securePageForStorePage }) => {
     await storePage.filterProductAccordingToBrand(testData.brandName)

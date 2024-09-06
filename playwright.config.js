@@ -38,7 +38,7 @@ module.exports = defineConfig({
     trace: 'on',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    headless: false,
+    headless: true,
     storageState: 'LoginAuthCQ1.json'
   },
 

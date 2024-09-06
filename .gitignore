@@ -8,6 +8,16 @@ playwright-report/
 local.log
 /log/
 package-lock.json
+.env
+/.vscode/
+
+
+
+
+
+
+
+
 
 
 
