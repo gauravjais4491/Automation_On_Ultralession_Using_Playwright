@@ -16,6 +16,7 @@
       "domain": "web-playground.ultralesson.com",
       "path": "/",
       "expires": 1727726825.367251,
+
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -46,6 +47,10 @@
       "domain": ".ultralesson.com",
       "path": "/",
       "expires": 1758053226.367396,
+      "value": "6d665e0b-74cc-411c-a086-c6e555f2953a",
+      "domain": ".ultralesson.com",
+      "path": "/",
+      "expires": 1753430440.01156,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
