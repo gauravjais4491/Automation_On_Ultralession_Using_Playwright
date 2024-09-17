@@ -31,12 +31,12 @@ for (const data of e2eData) {
         await customTest.step('should go to shopping address page', async () => {
             await viewCartPage.goToShoppingAddressPage();
         })
-        await customTest.step('should add shippping address details', async () => {
+        await customTest.step('should add shipping address details', async () => {
             await shoppingAddressPage.addShippingAddress(data.firstName, data.lastName, data.address, data.city, data.state, data.postalCode)
         })
 
         await customTest.step('should add payment details', async () => {
-            await paymentDetailsPage.addPaymentDeatils(data.cardNumber, data.nameOnCard, data.expiry, data.cvv)
+            await paymentDetailsPage.addPaymentDetails(data.cardNumber, data.nameOnCard, data.expiry, data.cvv)
         })
     })
 }

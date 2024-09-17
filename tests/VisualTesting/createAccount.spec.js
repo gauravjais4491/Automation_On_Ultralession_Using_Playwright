@@ -1,6 +1,5 @@
 import { expect } from '@playwright/test'
 import { customTest } from '../../Fixtures/createAccountFixture'
-// import { argosScreenshot } from '@argos-ci/playwright'
 
 
 customTest.beforeEach(async ({ context, homePage, login }) => {

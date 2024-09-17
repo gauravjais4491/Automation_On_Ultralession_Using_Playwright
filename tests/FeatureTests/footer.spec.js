@@ -8,14 +8,14 @@ customTest.beforeEach(async ({ generateData }) => {
     email = await generateData.generateEmailAddress()
 })
 
-customTest('should subscribe', async ({ capcha, footer, securePageForFooter }, testInfo) => {
+customTest('should subscribe', async ({ captcha, footer, securePageForFooter }, testInfo) => {
 
     await footer.subscribeToPage(email)
-    if (await capcha.checkForCapcha(testInfo.title)) {
-        console.log(`Capcha Caught in ${testInfo.title}: `, (await capcha.flashCapcha.textContent())?.trim());
+    if (await captcha.checkForCaptcha(testInfo.title)) {
+        console.log(`Captcha Caught in ${testInfo.title}: `, (await captcha.flashCaptcha.textContent())?.trim());
     }
     else {
-        expect((await securePageForFooter.flashForSuscribeSucessfully.textContent())?.trim()).toBe(footerData.expectedTextForSubscribers)
+        expect((await securePageForFooter.flashForSubscribeSuccessfully.textContent())?.trim()).toBe(footerData.expectedTextForSubscribers)
     }
 })
 

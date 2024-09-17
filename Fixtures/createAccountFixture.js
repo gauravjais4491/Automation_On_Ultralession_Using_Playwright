@@ -3,7 +3,7 @@ const { chromium } = require('@playwright/test');
 import CreateAccount from '../PageObject/createAccount/createAccount';
 import GenerateData from '../Data/generateData';
 import SecurePageForCreateAccount from '../PageObject/createAccount/securePageForCreateAccount';
-import Capcha from '../PageObject/Capcha/capcha';
+import Captcha from '../CommonUtils/Captcha/captcha'
 import HomePage from '../PageObject/HomePage/homePage';
 import Login from '../PageObject/Login/login';
 
@@ -37,7 +37,7 @@ export const customTest = base.test.extend({
     securePageForCreateAccount: async ({ page }, use) => {
         await use(new SecurePageForCreateAccount(page))
     },
-    capcha: async ({ page }, use) => {
-        await use(new Capcha(page))
+    captcha: async ({ page }, use) => {
+        await use(new Captcha(page))
     }
 })

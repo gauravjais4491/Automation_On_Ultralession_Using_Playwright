@@ -1,7 +1,4 @@
-const { test, expect } = require("playwright/test");
-import Capcha from "../../PageObject/Capcha/capcha";
-import Login from "../../PageObject/Login/login";
-import SecurePageForLogin from "../../PageObject/Login/securePageForLogin";
+const { expect } = require("playwright/test");
 import data from "../../Data/userData.json"
 import { customTest } from "../../Fixtures/loginFixture"
 
@@ -11,10 +8,10 @@ customTest.beforeEach(async ({ context }) => {
 })
 
 
-customTest('should login', async ({ login, securePageForLogin, capcha }, testInfo) => {
+customTest('should login', async ({ login, securePageForLogin, captcha }, testInfo) => {
     await login.userLogin(data.emailId, data.password, data.delayTime)
-    if (await capcha.checkForCapcha(testInfo.title)) {
-        console.log(`Capcha Caught in ${testInfo.title}: `, (await capcha.flashCapcha.textContent())?.trim());
+    if (await captcha.checkForCaptcha(testInfo.title)) {
+        console.log(`Captcha Caught in ${testInfo.title}: `, (await captcha.flashCaptcha.textContent())?.trim());
     }
     else {
         await expect(await securePageForLogin.flashAlertForLogin).toBeVisible({ timeout: 30000 })
